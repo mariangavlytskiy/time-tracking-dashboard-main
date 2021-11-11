@@ -1,0 +1,259 @@
+@import url('./root.css');
+
+
+body {
+    background-color: var(--very-dark-blue);
+    font-size: var(--spacing-18);
+    font-family: 'Rubik', sans-serif;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 1em;
+    width: 100%;
+}
+
+.wrapper {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: grid;
+    grid-template-areas: 
+    "profile card card card"
+    "profile card card card";
+    gap: 1.25em 1.25em;
+    margin: 5% auto;
+    height: 600px;
+    width: 60%;
+    
+
+}
+
+.profile-container {
+    grid-area: profile;
+    position: relative;
+    background-color: var(--dark-blue);
+    border-radius: 15px;
+    order: 0;
+    align-self: stretch;
+}
+
+.profile {
+    background-color: var(--desaturated-blue);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    padding: 25px;
+    border-radius: 15px;
+    color: var(--pale-blue);
+}
+
+.profile img {
+    width: 85px;
+    height: 85px;
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    margin: 0 0 3em;
+}
+
+.profile .title {
+    font-size: 1em;
+}
+
+.profile .name {
+    color: var(--white);
+    font-size: 48px;
+    font-weight: var(--weight-300);
+}
+.periods {
+    position: absolute;
+    color: var(--pale-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    bottom: 0;
+    margin: 1em 0;
+    width: 100%;
+}
+
+.periods > div:hover,
+.selected {
+    cursor: pointer;
+    color: var(--white);
+}
+
+.periods > div {
+    
+    padding: 10px 25px;
+    width: 100%;
+}
+
+.card {
+    position: relative;
+    min-height: 170px;
+    border-radius: 15px;
+}
+
+.info {
+    padding: 0 1em 1em;
+    font-weight: var(--weight-300);
+    border-radius: 15px;
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--dark-blue);
+}
+
+.info .previous {
+    margin-top: 8px;
+    color: var(--pale-blue);
+}
+
+.card > img {
+    position: absolute;
+    right: 5px;
+}
+
+.info header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    font-weight: var(--weight-400);
+}
+
+.work {
+    background-color: var(--light-red);
+}
+
+.play {
+    background-color: var(--soft-blue);
+}
+
+.study {
+    background-color: var(--red);
+}
+
+.exercise {
+    background-color: var(--lime-green);
+}
+
+.social {
+    background-color: var(--violet);
+}
+
+.self-care {
+    background-color: var(--soft-orange);
+}
+
+
+.info .time {
+    font-size: 64px;
+    color: var(--white);
+}
+
+.info .time {
+    font-size: 64px;
+    color: var(--white);
+}
+
+.info .previous {
+    margin-top: 8px;
+    color: var(--pale-blue);
+}
+
+ .attribution { 
+    color: var(--pale-blue);
+    font-size: 14px; 
+    text-align: center; 
+    margin: 0 auto;
+    width: 25%;
+}
+
+.attribution a { color: hsl(228, 45%, 44%); }
+.attribution a:hover { color: var(--desaturated-blue); }
+
+
+@media screen and (max-width: 375px) {
+    body {
+        padding: 3em 1em;
+        margin: 0;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1em;
+        margin: 0 0 1em;
+        height: 100%;
+        width: 100%;
+        color: var(--pale-blue);
+    }
+
+    .profile-container {
+        min-height: 215px; 
+        font-size: 0.875em;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .profile img {
+        margin: 0;
+    }
+
+    .profile .title {
+        font-size: 14px;
+    }
+
+    .profile .name {
+        font-size: 22px;
+    }
+
+    .periods {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 30%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .info .time {
+        font-size: 32px;
+        color: var(--white);
+    }
+
+    .info {
+        position: absolute;
+        background-color: var(--dark-blue);
+        width: 100%;
+        bottom: 0;
+        
+    }
+    .time-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.875em;
+    }
+    .card > img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .attribution {
+        width: 100%;
+    }
+}

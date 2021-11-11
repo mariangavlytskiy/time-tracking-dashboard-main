@@ -1,0 +1,19 @@
+{
+  "name": "time-tracking-dashboard-main",
+  "version": "1.0.0",
+  "description": "Frontent mentors course.",
+  "private": true,
+  "author": "Marian Gavlytskiy <marian.gavlytskiy@datarobot.com>",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^5.64.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "scripts": {
+    "start": "webpack server",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^4.4.0"
+  }
+}
