@@ -11,7 +11,7 @@ footer {
   font-size: 14px;
   text-align: center;
   margin: 0 auto;
-  width: 25%;
+  width: 100%;
 }
 
 .attribution a {
@@ -19,10 +19,4 @@ footer {
 }
 .attribution a:hover {
   color: var(--desaturated-blue);
-}
-
-@media screen and (max-width: 375px) {
-  .attribution {
-    width: 100%;
-  }
 }

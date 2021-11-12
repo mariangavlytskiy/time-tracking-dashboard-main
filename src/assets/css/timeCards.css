@@ -34,31 +34,37 @@
 }
 
 .work {
+  grid-area: work;
   background-color: var(--light-red);
 }
 
 .play {
+  grid-area: play;
   background-color: var(--soft-blue);
 }
 
 .study {
+  grid-area: study;
   background-color: var(--red);
 }
 
 .exercise {
+  grid-area: exercise;
   background-color: var(--lime-green);
 }
 
 .social {
+  grid-area: social;
   background-color: var(--violet);
 }
 
 .self-care {
+  grid-area: self-care;
   background-color: var(--soft-orange);
 }
 
 .info .time {
-  font-size: 64px;
+  font-size: var(--time-text-size);
   color: var(--white);
 }
 
@@ -67,11 +73,7 @@
   color: var(--pale-blue);
 }
 
-@media screen and (max-width: 375px) {
-  .info .time {
-    font-size: 32px;
-  }
-
+@media only screen and (max-width: 480px) {
   .info {
     position: absolute;
     background-color: var(--dark-blue);
@@ -89,5 +91,14 @@
   .card > img {
     width: 70px;
     height: 70px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  .time-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875em;
   }
 }

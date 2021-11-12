@@ -17,7 +17,9 @@
   --pale-blue: hsl(236, 100%, 87%);
   --white: #ffffff;
 
-  --spacing-18: 18px;
+  --regular-text-size: 18px;
+  --time-text-size: 64px;
+  --profile-name-text-size: 48px;
 
   --weight-300: 300;
   --weight-400: 400;
@@ -26,24 +28,25 @@
 
 body {
   font-family: "Rubik", sans-serif;
-  font-size: var(--spacing-18);
+  font-size: var(--regular-text-size);
   background-color: var(--very-dark-blue);
 }
 
 .wrapper {
+  display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  display: grid;
   grid-template-areas:
-    "profile card card card"
-    "profile card card card";
+    "profile work play study"
+    "profile exercise social self-care";
   gap: 1.25em 1.25em;
-  margin: 5% auto;
+  margin: 10% auto;
   height: 600px;
-  width: 60%;
+  width: 100%;
+  max-width: 1064px;
 }
 
-@media screen and (max-width: 375px) {
+@media only screen and (max-width: 480px) {
   body {
     padding: 3em 1em;
     margin: 0;
@@ -58,5 +61,24 @@ body {
     height: 100%;
     width: 100%;
     color: var(--pale-blue);
+  }
+}
+@media only screen and (max-width: 1023px) {
+  :root {
+    --time-text-size: 32px;
+    --profile-name-text-size: 22px;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 1023px) {
+  .wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "profile profile"
+      "work play"
+      "study exercise"
+      "social self-care";
+    height: 100%;
   }
 }
