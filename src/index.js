@@ -1,7 +1,17 @@
-import json from './data.json';
+import './assets/css/root.css';
+import './assets/css/styles.css';
+import jsonData from './assets/data/data.json';
+
+import profileImage from './assets/images/image-jeremy.png';
+import workIcon from './assets/images/icon-work.svg';
+import playIcon from './assets/images/icon-play.svg';
+import studyIcon from './assets/images/icon-study.svg';
+import exerciseIcon from './assets/images/icon-exercise.svg';
+import selfCareIcon from './assets/images/icon-self-care.svg';
+import socialIcon from './assets/images/icon-social.svg';
 
 let period = 'daily';
-let RESPONSE_DATA = json;
+
 
 function toClassName(title) {
     return title.toLowerCase().split(' ').join('-');
@@ -17,8 +27,8 @@ function handleOnPeriodClick() {
             document.querySelector(`#${period}`).classList.remove('selected');
             period = event.target.innerText.toLowerCase();
             selectPeriod();
-            if (RESPONSE_DATA) {
-                RESPONSE_DATA.forEach(({title, timeframes}) => {
+            if (jsonData) {
+                jsonData.forEach(({title, timeframes}) => {
                     fillInfo(toClassName(title), timeframes);
                 });
             }
@@ -56,25 +66,24 @@ function fillInfo(className, timeframeValues) {
 
 }
 
-function fetchData() {
-    fetch(jsonPath)
-        .then(response => response.json())
-        .then(json => {
-            json.forEach(({title, timeframes}) => {
-                fillInfo(toClassName(title), timeframes);
-            });
-            RESPONSE_DATA = json;
-        })
-        .catch((e) => console.log(e));
-};
-
-
-function init() {
-    RESPONSE_DATA.forEach(({title, timeframes}) => {
+window.onload = () => {
+    jsonData.forEach(({title, timeframes}) => {
         fillInfo(toClassName(title), timeframes);
     });
+};
+
+function init() {
     handleOnPeriodClick();
     selectPeriod();
+    const profileImgElement = document.querySelector('#profile-image')
+    profileImgElement.src = profileImage;
+    document.querySelector('.work img').src = workIcon;
+    document.querySelector('.play img').src = playIcon;
+    document.querySelector('.study img').src = studyIcon;
+    document.querySelector('.exercise img').src = exerciseIcon;
+    document.querySelector('.social img').src = socialIcon;
+    document.querySelector('.self-care img').src = selfCareIcon;
+    
 }
 
 init();
