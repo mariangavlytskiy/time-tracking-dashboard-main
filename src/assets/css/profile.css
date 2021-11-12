@@ -9,14 +9,14 @@
 
 .profile {
   background-color: var(--desaturated-blue);
+  color: var(--pale-blue);
+  border-radius: 15px;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 70%;
   padding: 25px;
-  border-radius: 15px;
-  color: var(--pale-blue);
 }
 
 .profile img {
@@ -69,6 +69,7 @@
     align-items: center;
     justify-content: space-between;
   }
+
   .profile img {
     margin: 0;
   }
@@ -83,7 +84,7 @@
 
   .periods {
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap;
     align-items: center;
     justify-content: space-evenly;
     position: absolute;
