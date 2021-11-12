@@ -8,13 +8,17 @@ import { PERIODS_CLASS_NAME } from "./components/constants";
 
 const root = document.getElementById("root");
 let period = "daily";
+const timesData = populateTimesData(jsonData, period);
 
 function updateData(period) {
   const timesData = populateTimesData(jsonData, period);
-  root.innerHTML = `
-    ${ProfileContainer()}
-    ${TimeCardsContainer(timesData)}
-  `;
+  timesData.forEach(({ className, current, previous }) => {
+    const cardElem = root.getElementsByClassName(className)[0];
+    const currentElem = cardElem.getElementsByClassName("time")[0];
+    const previousElem = cardElem.getElementsByClassName("previous")[0];
+    currentElem.innerHTML = current;
+    previousElem.innerHTML = previous;
+  });
 }
 
 function selectPeriod(period) {
@@ -26,21 +30,20 @@ function unselectPeriod(period) {
 }
 
 window.onload = () => {
-  const timesData = populateTimesData(jsonData, period);
   root.innerHTML = `
     ${ProfileContainer()}
     ${TimeCardsContainer(timesData)}
   `;
-  selectPeriod(period);
-};
 
-document
-  .querySelector(`.${PERIODS_CLASS_NAME}`)
-  .addEventListener("click", (event) => {
-    if (!!event.target.innerText) {
-      unselectPeriod(period);
-      period = event.target.innerText.toLowerCase();
-      selectPeriod(period);
-      updateData(period);
-    }
-  });
+  selectPeriod(period);
+  root
+    .querySelector(`.${PERIODS_CLASS_NAME}`)
+    .addEventListener("click", (event) => {
+      if (!!event.target.innerText) {
+        unselectPeriod(period);
+        period = event.target.innerText.toLowerCase();
+        updateData(period);
+        selectPeriod(period);
+      }
+    });
+};
