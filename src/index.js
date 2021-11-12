@@ -7,7 +7,7 @@ import { populateTimesData } from "./components/utils";
 import { PERIODS_CLASS_NAME } from "./components/constants";
 
 const root = document.getElementById("root");
-let period = "daily";
+let period = "daily"; // use 'daily' as default value.
 const timesData = populateTimesData(jsonData, period);
 
 function updateData(period) {
