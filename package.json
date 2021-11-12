@@ -7,7 +7,7 @@
   "license": "MIT",
   "dependencies": {},
   "scripts": {
-    "watch": "mkdir dist/ && cp src/public/* dist/ && webpack --watch",
+    "watch": "webpack --watch",
     "build": "webpack && cp src/public/* dist/",
     "lint:fix": "yarn prettier --write ."
   },
